@@ -7,7 +7,7 @@ Correct answers give the user 5 points
 """
 
 __author__ = "Kevin Ngigi"
-__copyright__ = "Copyright 2007, The Cogent Project"
+__copyright__ = "Copyright (C) 2022 Kevin Ngigi"
 __credits__ = None
 __license__ = "Apache License 2.0"
 __version__ = "1.0.0"
