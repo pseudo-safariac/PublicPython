@@ -4,7 +4,16 @@ from collections import deque
 
 """
 This is my own implementation of Stacks, Queues and Linked Lists in Python.
-In a stack, it is LIFO and Queues have FIFO 
+In a stack, it is LIFO and Queues have FIFO .
+Attributes are:
+    is_empty
+    push
+    pop
+    view_stack
+    view_queue
+Methods are:
+    self.items : list
+    
 """
 
 __author__ = "Kevin Ngigi"
@@ -16,22 +25,26 @@ __status__ = "Prototype"
 
 
 class Stack:
-    #Using deque over lists gives faster append and pop operations
     def __init__(self):
+        # Using deque over lists gives faster append and pop operations
         self.items = deque()
+
+    def __str__(self):
+        return f'{self.items}'
+
+    def __repr__(self):
+        return f'{self.items}'
 
     def is_empty(self):
         return self.items == deque([])
 
-    # The args help to insert a list or tuple into the queue
     def push(self, *item):
+        # The args help to insert a list or tuple into the queue
+        # print(f'You have pushed {item} to the stack')
         self.items.insert(0, item)
-    
-    #Slight issues that need addressing on this function
-    def pop(self):
-        #print(f'You have popped {self.items(0)} from the stack')
-        return self.items.pop()
 
+    def pop(self):
+        return self.items.popleft()
 
     def view_stack(self):
         return f'{len(self.items)} items are available and they are:\n{self.items} '
@@ -40,19 +53,24 @@ class Stack:
 class Queue:
     def __init__(self):
         self.items = []
+        
+    def __str__(self):
+        return f'{self.items}'
+
+    def __repr__(self):
+        return f'{self.items}'
 
     def is_empty(self):
         return self.items == []
 
-    # The args help to insert a list or tuple into the queue
     def push(self, *item):
-        print(f'You have inserted {item} into the Queue')
+        # The args help to insert a list or tuple into the queue
+        # print(f'You have inserted {item} into the Queue')
         return self.items.insert(0, item)
-    
-    def pop(self):
-        print(f'{self.items.pop(0)} has been popped from the Queue')
-        return self.items
 
+    def pop(self):
+        # print(f'{self.items.pop(0)} has been popped from the Queue')
+        return self.items
 
     def view_queue(self):
         return f'{len(self.items)} items are available and they are:\n{self.items} '
@@ -62,4 +80,3 @@ if __name__ == '__main__':
     stack = Stack()
     queue = Queue()
     
-
