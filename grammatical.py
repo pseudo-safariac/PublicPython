@@ -21,25 +21,94 @@ class Grammar:
     def break_line(self):
         for x in self.line.split():
             Grammar.__words.append(x)
-    
+
+
 class PartsOfSpeech(Grammar):
-    """Nouns, pronouns, Verbs, adjectives, adverbs, prepositions, conjunctions, interjections.
-    Some words (adjectives, adverbs, interjections, nouns, verbs) are productive classes allowing new members; 
-    others, with functional rather than lexical meaning (articles, conjunctions, prepositions) are nonproductive 
-    and have a limited number of members.
-    Some grammarians consider articles, quantifiers, and numerals to also be parts of speech.
+    def nouns(self):
+        pass
     
-    The basic parts of a sentence are the subject, the verb, and (often, but not always) the object. 
-    The subject is usually a noun — a word that names a person, place, or thing. 
-    The verb (or predicate) usually follows the subject and identifies an action or a state of being. 
-    An object receives the action and usually follows the verb.
+    def pronouns(self):
+        pass
     
+    def adjectives(self):
+        pass
     
-    """
-    pass
+    def adverbs(self):
+        pass
+    
+    def prepositions(self):
+        pass
+    
+    def conjunctions(self):
+        pass
+    
+    def interjections(self):
+        pass
 
 
-q = 'This is awesome!'
-app = Grammar(q)
-print(app.break_line())
+class sentenceType(Grammar):
+    def simple_sentence(self):
+        pass
+    
+    def compound_sentence(self):
+        pass
+    
+    def complex_senctence(self):
+        pass
+    
+    def  compound_complex_sentence(self):
+        pass
+ 
+    # There are four main types of sentences that can be distinguished by their function and purpose:   
+    def declarative_sentence(self):
+        pass
+    
+    def interrogative_sentence(self):
+        pass
+    
+    def inperative_sentence(self):
+        pass
+    
+    def exclamatory_sentence(self):
+        pass
+    
+
+class sentenceAssistance(Grammar):
+    def sentence_coordinaters(self):
+        pass
+    
+    def adjective_clauses(self):
+        pass
+    
+    def appositives(self):
+        pass
+    
+    def adverb_clauses(self):
+        pass
+    
+    def participial_phrases(self):
+        pass
+    
+    def absolute_phrases(self):
+        pass
+    
+    
+"""Nouns, pronouns, Verbs, adjectives, adverbs, prepositions, conjunctions, interjections.
+Some words (adjectives, adverbs, interjections, nouns, verbs) are productive classes allowing new members; 
+others, with functional rather than lexical meaning (articles, conjunctions, prepositions) are nonproductive 
+and have a limited number of members.
+Some grammarians consider articles, quantifiers, and numerals to also be parts of speech.
+
+https://www.thoughtco.com/sentence-parts-and-sentence-structures-1689671
+The subject is usually a noun — a word that names a person, place, or thing. 
+The verb (or predicate) usually follows the subject and identifies an action or a state of being. 
+An object receives the action and usually follows the verb.
+
+"""
+
+
+if __name__ == '__main__':
+    q = 'This is awesome!'
+    app = Grammar(q)
+    print(app.break_line())
 
