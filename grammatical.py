@@ -22,10 +22,20 @@ class Grammar:
         for x in self.line.split():
             Grammar.__words.append(x)
 
+    def sender_to_partsofspeech(self):
+        PartsOfSpeech.nouns(Grammar.__words)
+        PartsOfSpeech.pronouns(Grammar.__words)
+        PartsOfSpeech.adjectives(Grammar.__words)
+        PartsOfSpeech.adverbs(Grammar.__words)
+        PartsOfSpeech.prepositions(Grammar.__words)
+        PartsOfSpeech.conjunctions(Grammar.__words)
+        PartsOfSpeech.interjections(Grammar.__words)
+
 
 class PartsOfSpeech(Grammar):
     def nouns(self):
-        pass
+        q = self
+        return q
     
     def pronouns(self):
         pass
@@ -110,5 +120,38 @@ An object receives the action and usually follows the verb.
 if __name__ == '__main__':
     q = 'This is awesome!'
     app = Grammar(q)
-    print(app.break_line())
+    app2 = PartsOfSpeech(q)
+    print(app2.nouns())
 
+# This is the format I should use to define sender_to_partsofspeech
+    """
+class A:
+    __d = 'angular momentum'
+    def receiver(self):
+        print('First call')
+        B.sth(A.__d)
+        B.ask(A.__d)
+        
+    def grasper(self):
+        q = B.sth(A.__d)
+        print(str(q), 'is q without spice')
+        
+
+
+class B(A):
+    def sth(self):
+        z = self
+        print(z, 'is z')
+        return z 
+        
+    def ask(self):
+        z1 = self
+        print(z1, 'is z1')
+
+
+q = 'qwerty'
+b = B()
+a = A()
+print(a.grasper())
+#print(a.receiver())
+"""
