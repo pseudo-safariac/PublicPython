@@ -34,20 +34,23 @@ class SplashScreen(tk.Tk):
         s = ttk.Style()
         s.theme_use('clam')
         s.configure('red.Horizontal.TProgressbar', foreground='red',
-                    background='green', troughcolor= '#231651'
+                    background='#0000c6', troughcolor= '#2626ff',
+                    darkcolor= '#aaaaff', lightcolor='#aaaaff',
+                    bordercolor='#231651',
                     )
         s.map('TButton',
                   background=[('focus', '#231651')],
                   foreground=[('focus', '#231651')]
                   )
 
+        #Adding Labels
         company_label = ttk.Label(self, text='WALTER\'S', background= '#231651',
-                          foreground='#476C9B', borderwidth=15,
+                          foreground='#5b5bff', borderwidth=15,
                           font=('Helvetica', 49, 'bold'))
         company_label.place(x=50, y=80)
 
         lab_label = ttk.Label(self, text='Lab',
-                                  foreground='#476C9B', background='#231651',
+                                  foreground='#6666ff', background='#231651',
                                   font=('Proxima Nova', 27, 'bold', 'italic')
                                   )
         lab_label.place(x=420, y=180)
@@ -57,24 +60,30 @@ class SplashScreen(tk.Tk):
                                   font=('Proxima Nova', 10, 'bold', 'italic'))
 
         progress = ttk.Progressbar(self, style='red.Horizontal.TProgressbar',
-                                   orient= tk.HORIZONTAL, length= 630, mode='determinate')
+                                   orient= tk.HORIZONTAL,
+                                   length= 630,
+                                   mode='determinate')
         progress['value'] = 0
 
         def launch():
             loading_label.place(x=520, y=280)
             progress.place(x=0, y=310)
-            progress_number = 0
-            while progress_number < 100:
+            while progress['value'] < 100:
+                self.update_idletasks()
+                print(progress['value'])
                 progress['value'] += 1
-                progress_number += 1
-                # sleep(0.03)
+                sleep(0.03)
+            else:
+                print('ERROR IN PROGRESSBAR!!!')
+                launch_login()
 
+        # Adding Buttons
         start_button = tk.Button(self, text='launch',
                                  background='#231651',
                                  foreground='#dcdcdc',
                                  font=('Helvetica', 9, 'bold'),
                                  command=launch, borderwidth=0)
-        start_button.place(x=0, y=0)
+        start_button.place(x=5, y=5)
 
         close_button = tk.Button(self, text='close',
                                  background='#231651',
@@ -90,7 +99,6 @@ class SplashScreen(tk.Tk):
 
         intro_sound_path = r'C:/Windows/Media/Alarm05.wav'
         PlaySound(intro_sound_path, SND_FILENAME)
-        # PlaySound('SystemQuestion', SND_FILENAME)
 
         """x_value = 90
         y_value = 0
@@ -214,7 +222,7 @@ class Login(tk.Tk):
 
     def widgets_create(self):
         # Adding Title
-        kibendera_label = ttk.Label(self, text='KIBENDERA', background='#231651',
+        kibendera_label = ttk.Label(self, text='CLEAN WATER', background='#231651',
                                    foreground='#476C9B', borderwidth=15,
                                    font=('Helvetica', 29, 'bold')
                                    )
@@ -224,7 +232,7 @@ class Login(tk.Tk):
                               foreground='#aba8d7', background='#231651',
                               font=('Proxima Nova', 14, 'bold', 'italic')
                               )
-        section_label.place(x=360, y=50)
+        section_label.place(x=380, y=70)
 
         # Adding Labels
         username_text = ttk.Label(self, text='Username :', background='#231651',
@@ -288,8 +296,8 @@ class Login(tk.Tk):
                                                        )
                         password_text.configure(foreground='green')
                         switch = True
-                        launch_maingui()
-                        self.destroy()
+                        self.dramatic_ending()
+
                     elif password_entry_var.get() == '':
                         print('Password is empty', password_entry_var.get())
                         notification_message.configure(text='Password cannot be Empty',
@@ -326,6 +334,18 @@ class Login(tk.Tk):
     def destruction(self):
         self.destroy()
 
+    def dramatic_ending(self):
+        sleep(0.5)
+        timer = 50
+        contrast = 0.5
+        while timer != 0:
+            self.attributes('-alpha', contrast)
+            contrast = contrast - 0.01
+            timer-=1
+            sleep(0.03)
+        else:
+            self.destroy()
+
 
 
 def launch_login():
@@ -348,5 +368,5 @@ try:
     windll.shcore.SetProcessDpiAwareness(1)
 finally:
     splash = SplashScreen()
-    # splash.after(5000, launch_login)
+    # splash.after(3000, launch_login)
     splash.mainloop()
