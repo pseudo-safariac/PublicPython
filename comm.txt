@@ -1,0 +1,8 @@
+Hello Y'all!
+My name is Kevin from Kenya, and I am currently just over one year old in Python.
+I wish to share with you something I have used in my project (Actual names are changed for privacy).
+
+The code will be publicly available soon and I will post the link in the description though you are free to visit my github.
+My email address and LinkedIn profile is also open.
+
+Any comments, advice or sugeestions will not be blatantly ignored.

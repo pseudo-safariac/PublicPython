@@ -70,11 +70,11 @@ class SplashScreen(tk.Tk):
             progress.place(x=0, y=310)
             while progress['value'] < 100:
                 self.update_idletasks()
-                print(progress['value'])
+                # print(progress['value'])
                 progress['value'] += 1
                 sleep(0.03)
             else:
-                print('ERROR IN PROGRESSBAR!!!')
+                # print('ERROR IN PROGRESSBAR!!!')
                 launch_login()
 
         # Adding Buttons
