@@ -21,7 +21,6 @@ __copyright__ = "Copyright (C) 2022 Kevin Ngigi"
 __license__ = "Apache License 2.0"
 __maintainer__ = "Kevin Ngigi"
 __email__ = "kevinngigi110@gmail.com"
-__status__ = "Prototype"
 
 
 class Stack:
@@ -79,4 +78,3 @@ class Queue:
 if __name__ == '__main__':
     stack = Stack()
     queue = Queue()
-    
